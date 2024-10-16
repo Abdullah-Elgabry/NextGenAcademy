@@ -1,0 +1,96 @@
+{% extends 'base.html' %} {% block link %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='css/index.css') }}"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+  rel="stylesheet"
+/>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+{% endblock %} {% block body %}
+
+<!-- Welcome Section -->
+<section class="welcome">
+  <div class="container text-center">
+    <h1>Welcome to NexGen Academy</h1>
+    <p>Your gateway to innovative learning experiences.</p>
+    <a href="#services" class="btn btn-primary">Explore More</a>
+    <a href="#contact" class="btn btn-secondary">Our ervices</a>
+  </div>
+</section>
+
+<!-- Services Section -->
+<div id="services" class="services pt-5 pb-5">
+  <div class="container">
+    <h3 class="mb-5">How it Works</h3>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="service-box">
+          <i class="fas fa-question-circle service-icon"></i>
+          <h5>Create Questions</h5>
+          <p>Doctors can create and manage questions for students.</p>
+          <a href="#" class="learn-more"
+            >Learn more <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="service-box">
+          <i class="fas fa-chart-line service-icon"></i>
+          <h5>Track Progress</h5>
+          <p>Students can track their performance and improve.</p>
+          <a href="#" class="learn-more"
+            >Learn more <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="service-box">
+          <i class="fas fa-file-alt service-icon"></i>
+          <h5>Documentation</h5>
+          <p>Get detailed reports of student progress and performance.</p>
+          <a href="#" class="learn-more"
+            >Learn more <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact" class="contact-us">
+  <div class="container">
+    <h2>Our Services</h2>
+    <div class="contact-boxes">
+      <div class="contact-box">
+        <h3>Courses</h3>
+        <p>
+          Explore our diverse courses designed to enhance your learning
+          experience.
+        </p>
+        <a href="/courses" class="btn">Learn More</a>
+      </div>
+      <div class="contact-box">
+        <h3>Scores</h3>
+        <p>
+          Check your scores and track your progress with our easy-to-use tools.
+        </p>
+        <a href="/scores" class="btn">View Scores</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="social-icons">
+        <h3>Empowering Minds for Tomorrow's Learning.</h3>
+      </div>
+      <p>&copy; 2024 NexGen Academy. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+{% endblock %}

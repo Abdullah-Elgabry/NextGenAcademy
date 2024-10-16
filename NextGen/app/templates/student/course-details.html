@@ -1,0 +1,119 @@
+{% extends 'base.html' %} {% block link %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static' , filename='css/student.css') }}"
+/>
+{% endblock %} {% block body %} {% with
+messages=get_flashed_messages(with_categories=true) %} {% if messages %} {% for
+category,message in messages %}
+<div class="container pt-3">
+  <div
+    class="alert alert-{{category}} alert-dismissible fade show"
+    role="alert"
+  >
+    <strong>{{message}}</strong>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="alert"
+      aria-label="Close"
+    ></button>
+  </div>
+</div>
+{% endfor %} {% endif %} {% endwith %} {% if course %}
+<div class="container">
+  <div class="d-flex justify-content-between align-items-center">
+    <h3 class="mt-5 mb-5">{{course.name}}</h3>
+    {% if score %}
+    <div class="single-chart">
+      <svg viewBox="0 0 36 36" class="circular-chart orange">
+        <path
+          class="circle-bg"
+          d="M18 2.0845
+                                                                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                                                                  a 15.9155 15.9155 0 0 1 0 -31.831"
+        />
+        <path
+          class="circle"
+          stroke-dasharray="{{score.sore}}, 100"
+          d="M18 2.0845
+                                                                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                                                                  a 15.9155 15.9155 0 0 1 0 -31.831"
+        />
+        <text x="18" y="20.35" class="percentage">{{score.sore}}%</text>
+      </svg>
+    </div>
+    {% endif %}
+  </div>
+
+  {% if unanswered_questions %}
+  <div class="container mt-3 mb-5">
+    <a
+      href="{{url_for('exam' , course_id = course.id )}}"
+      class="btn btn-success"
+    >
+      Start Exam
+    </a>
+    <div class="mt-3">
+      <p>Questions: {{ unanswered_questions|length }} Questions</p>
+      <p>Duration: 5 min</p>
+    </div>
+  </div>
+  {% endif %} {% if combined_data %}
+  <h4 class="mb-4 ans-click">Answered Questions</h4>
+  <div class="answered">
+    {% for question, answer in combined_data %}
+    <label for="question_{{ loop.index }}" class="mb-2 ps-2">
+      <strong>{{ loop.index }} - {{ question.question }}</strong>
+    </label>
+    <div class="position-relative">
+      {% if answer.result == "false" %}
+      <button
+        class="btn btn-success mb-3 show-ans"
+        data-index="{{ loop.index }}"
+      >
+        Show Correct Answer
+      </button>
+      <textarea
+        class="form-control mb-3 correct-ans"
+        id="correct-answer-{{ loop.index }}"
+        cols="30"
+        rows="4"
+        readonly
+        style="display: none"
+      >
+ {{ question.answer }} </textarea
+      >
+      {% endif %}
+      <textarea
+        class="form-control mb-3 {{ answer.result }}"
+        name="question_{{ loop.index }}"
+        id="question_{{ loop.index }}"
+        cols="30"
+        rows="4"
+        placeholder="Enter Answer"
+        readonly
+      >
+ {{ answer.answer_text }} </textarea
+      >
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endif %} {% endblock %} {% block script %}
+<script>
+  let showAnswers = document.querySelectorAll(".show-ans");
+
+  showAnswers.forEach((btn) => {
+    btn.onclick = function () {
+      let index = btn.getAttribute("data-index");
+      let correctAnswerTextarea = document.getElementById(
+        "correct-answer-" + index
+      );
+      correctAnswerTextarea.style.display =
+        correctAnswerTextarea.style.display === "none" ? "block" : "none";
+    };
+  });
+</script>
+{% endblock %}
