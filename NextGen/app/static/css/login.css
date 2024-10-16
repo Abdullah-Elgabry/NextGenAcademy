@@ -1,0 +1,19 @@
+div.login{
+    width: 50%;
+    margin: 5rem auto;
+    box-shadow: 0 0 7px 0 #eee;
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+div.login h3{
+    margin: 0 0 20px 0;
+}
+
+
+@media (min-width:320px) and (max-width:480px) {
+    div.login{
+        width: 85%;
+        margin: 7rem auto;
+    }
+}

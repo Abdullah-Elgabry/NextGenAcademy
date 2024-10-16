@@ -1,0 +1,85 @@
+textarea {
+  resize: none;
+}
+
+textarea.true {
+  border: 3px solid rgb(25, 135, 84);
+}
+
+textarea.false {
+  border: 3px solid rgb(220, 53, 69);
+}
+
+textarea.correct-ans {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  height: 117px;
+  display: none;
+}
+
+textarea.correct-ans.show {
+  display: inline;
+}
+
+.course {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Increased shadow for a modern look */
+  border-radius: 12px;
+  padding: 20px; /* Add padding for spacing */
+  transition: transform 0.2s; /* Smooth transition on hover */
+  cursor: pointer; /* Change cursor to pointer */
+  background-color: white; /* Optional: ensures a white background */
+}
+
+.course:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.single-chart {
+  width: 80px;
+}
+
+.circular-chart {
+  display: block;
+  margin: 10px auto;
+  max-width: 100%;
+  max-height: 250px;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}
+
+.circular-chart.orange .circle {
+  stroke: #ff9f00;
+}
+
+.circular-chart.green .circle {
+  stroke: #4cc790;
+}
+
+.circular-chart.blue .circle {
+  stroke: #3c9ee5;
+}
+
+.percentage {
+  fill: #666;
+  font-family: sans-serif;
+  font-size: 0.5em;
+  text-anchor: middle;
+}

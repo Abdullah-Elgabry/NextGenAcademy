@@ -1,0 +1,114 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --white-color: #ffffff;
+  --primary-color: #f44749;
+  --secondary-color: #f3af24;
+  --section-bg-color: #f9f9f9;
+  --dark-color: #000000;
+  --title-color: #565758;
+  --news-title-color: #292828;
+  --p-color: #717275;
+  --border-color: #eaeaea;
+  --body-font-family: "Montserrat", sans-serif;
+}
+.font-weight-semibold {
+  font-weight: 600;
+}
+.font-weight-bold {
+  font-weight: bold;
+}
+body {
+  background: var(--white-color);
+  font-family: var(--body-font-family);
+  position: relative;
+}
+nav {
+  box-shadow: 0 0 7px 0 #eee;
+}
+nav ul li a {
+  color: var(--p-color) !important;
+}
+nav ul li a:hover {
+  color: var(--primary-color) !important;
+}
+.active {
+  color: var(--primary-color) !important;
+}
+.login,
+.register {
+  position: relative;
+}
+.dropdown-login,
+.dropdown-register {
+  background-color: #fff;
+  list-style: none;
+  padding: 5px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 7px 0 #eee;
+  border-radius: 12px;
+  display: none;
+  z-index: 5;
+}
+.dropdown-login.show,
+.dropdown-register.show {
+  display: block;
+}
+.dropdown-login li,
+.dropdown-register li {
+  padding: 5px 20px;
+}
+.user {
+  cursor: pointer;
+  position: relative;
+}
+.user .arrow-dowm {
+  width: 20px !important;
+  margin-bottom: 4px;
+}
+.user ul {
+  background-color: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  box-shadow: 0 0 7px 0 #eee;
+  display: none;
+  z-index: 5;
+}
+.user ul li a {
+  transition: 0.5s;
+}
+.user ul li:hover a {
+  padding-left: 28px !important;
+}
+.user ul.show {
+  display: block;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .dropdown-login,
+  .dropdown-register {
+    padding: 5px;
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .user ul {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+  }
+}
