@@ -1,1 +1,1 @@
-# NextGenAcademy
+# NextGen
